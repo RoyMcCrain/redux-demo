@@ -1,0 +1,7 @@
+export const VISIBILITY_FILTERS = {
+  ALL: "ALL" as "ALL",
+  COMPLETED: "COMPLETED" as "COMPLETED",
+  INCOMPLETED: "INCOMPLETED" as "INCOMPLETED"
+};
+
+export type TypeFilter = "ALL" | "COMPLETED" | "INCOMPLETED";
