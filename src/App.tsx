@@ -1,7 +1,7 @@
 import React from "react";
-import AddTodo from "./components/AddTodo";
-import TodoList from "./components/TodoList";
-import VisibilityFilters from "./components/VisibilityFilters";
+import AddTodo from "./containers/AddTodo";
+import TodoList from "./containers/TodoList";
+import VisibilityFilters from "./containers/VisibilityFilters";
 import "./App.css";
 
 const App: React.FC = () => {
@@ -9,8 +9,8 @@ const App: React.FC = () => {
     <div className="App">
       <h1>Todo List</h1>
       <AddTodo />
-      <TodoList todos={{}} />
-      <VisibilityFilters activeFilter={"ALL"} />
+      <TodoList />
+      <VisibilityFilters />
     </div>
   );
 };

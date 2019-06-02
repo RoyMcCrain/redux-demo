@@ -1,10 +1,15 @@
 import React, { useState, useCallback } from "react";
 
-const AddTodo: React.FC = () => {
+type AddTodoProps = {
+  addTodo?: (input: string) => void;
+};
+
+const AddTodo: React.FC<AddTodoProps> = ({ addTodo = () => {} }) => {
   const [input, setInput] = useState("");
   const handleAddTodo = useCallback(() => {
-    // TODO
-  }, []);
+    addTodo(input);
+    setInput("");
+  }, [input, addTodo]);
   return (
     <div>
       <input onChange={e => setInput(e.currentTarget.value)} value={input} />

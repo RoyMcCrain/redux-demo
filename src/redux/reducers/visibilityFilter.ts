@@ -1,11 +1,11 @@
-import { SET_FILTER } from "../actionTypes";
+import { SET_FILTER, Action } from "../actions";
 import { VISIBILITY_FILTERS, TypeFilter } from "../../constants";
 
 const initialState = VISIBILITY_FILTERS.ALL;
 
 const visibilityFilter = (
   state: TypeFilter = initialState,
-  action: any
+  action: Action
 ): TypeFilter => {
   switch (action.type) {
     case SET_FILTER: {

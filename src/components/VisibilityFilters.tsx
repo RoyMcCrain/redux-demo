@@ -1,20 +1,24 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { VISIBILITY_FILTERS } from "../constants";
+import { TypeFilter } from "../constants";
 
-const VisibilityFilters: React.FC<{ activeFilter: string }> = ({
-  activeFilter
-}) => {
-  const handleClick = useCallback(() => {}, []);
+type Props = {
+  setFilter: any;
+  activeFilter: TypeFilter;
+};
+
+const VisibilityFilters: React.FC<Props> = ({ setFilter, activeFilter }) => {
+  const handleClick = (filter: string) => () => setFilter(filter);
   const filters = () =>
-    Object.values(VISIBILITY_FILTERS).map(filter => (
-      <>
-        <div key={`visibility-filter-${filter}`} onClick={handleClick}>
+    Object.values(VISIBILITY_FILTERS).map(filter => {
+      return (
+        <div key={`visibility-filter-${filter}`} onClick={handleClick(filter)}>
           <p>
             |{activeFilter === filter ? "Yes" : "No"}| Filter: {filter}
           </p>
         </div>
-      </>
-    ));
+      );
+    });
   return (
     <div>
       <span>{filters()}</span>

@@ -1,8 +1,13 @@
-import { ADD_TODO, TOGGLE_TODO } from "../actionTypes";
+import { ADD_TODO, TOGGLE_TODO, Action } from "../actions";
 
-type State = {
+export type State = {
   allIds: ReadonlyArray<number>;
-  byIds: any;
+  byIds: {
+    [key: number]: {
+      content: string;
+      completed: boolean;
+    };
+  };
 };
 
 const initState: State = {
@@ -10,7 +15,7 @@ const initState: State = {
   byIds: {}
 };
 
-export default function(state: State = initState, action: any) {
+export default function(state: State = initState, action: Action) {
   switch (action.type) {
     case ADD_TODO: {
       const { id, content } = action.payload;

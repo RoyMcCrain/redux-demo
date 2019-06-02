@@ -1,7 +1,15 @@
 import React from "react";
-import Todo from "./Todo";
+import Todo from "../containers/Todo";
 
-const TodoList: React.FC<{ todos: any }> = ({ todos }) => (
+type Props = {
+  todos: Array<{
+    id: number;
+    completed: boolean;
+    content: string;
+  }>;
+};
+
+const TodoList: React.FC<Props> = ({ todos }) => (
   <ul>
     {todos && todos.length
       ? todos.map((todo: any) => {
