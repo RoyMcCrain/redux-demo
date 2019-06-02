@@ -1,12 +1,9 @@
 import React from "react";
 import Todo from "../containers/Todo";
+import { Todos } from "../types";
 
 type Props = {
-  todos: Array<{
-    id: number;
-    completed: boolean;
-    content: string;
-  }>;
+  todos: Todos[];
 };
 
 const TodoList: React.FC<Props> = ({ todos }) => (

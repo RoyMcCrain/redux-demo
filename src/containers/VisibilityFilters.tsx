@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { setFilter } from "../redux/actions";
 import { TypeFilter } from "../constants";
+import { ContainerState } from "../types";
 
 type Props = {
   activeFilter: TypeFilter;
@@ -12,7 +13,7 @@ type DispatchProps = {
   setFilter: typeof setFilter;
 };
 
-const mapStateToProps = (state: any): Props => {
+const mapStateToProps = (state: ContainerState): Props => {
   return { activeFilter: state.visibilityFilter };
 };
 
