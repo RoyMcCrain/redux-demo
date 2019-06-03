@@ -7,7 +7,9 @@ type DispatchProps = {
   toggleTodo: typeof toggleTodo;
 };
 
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
+type Action = ReturnType<typeof toggleTodo>
+
+const mapDispatchToProps = (dispatch: Dispatch<Action>): DispatchProps => ({
   toggleTodo: id => dispatch(toggleTodo(id))
 });
 

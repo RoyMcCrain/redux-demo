@@ -13,11 +13,13 @@ type DispatchProps = {
   setFilter: typeof setFilter;
 };
 
+type Action = ReturnType<typeof setFilter>
+
 const mapStateToProps = (state: ContainerState): Props => {
   return { activeFilter: state.visibilityFilter };
 };
 
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
+const mapDispatchToProps = (dispatch: Dispatch<Action>): DispatchProps => ({
   setFilter: (filter: TypeFilter) => dispatch(setFilter(filter))
 });
 

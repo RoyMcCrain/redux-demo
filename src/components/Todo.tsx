@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
-import { Todos } from "../types";
+import { Todo as TodoType } from "../types";
 
 type Props = {
-  todo: Todos;
+  todo: TodoType;
   toggleTodo?: (id: number) => void;
 };
 

@@ -1,18 +1,19 @@
 import { VISIBILITY_FILTERS } from "../constants";
+import { ContainerState, TodosState, Todo } from '../types'
 
-export const getTodoState = (store: any) => store.todos;
+export const getTodoState = (store: ContainerState) => store.todos;
 
-export const getTodoList = (store: any): any[] =>
-  store && store.todos ? store.todos.allIds : [];
+export const getTodoList = (store: ContainerState): TodosState["allIds"] =>
+  store.todos.allIds;
 
-export const getTodoById = (store: any, id: number): object =>
-  store.todos.byIds ? { ...store.todos.byIds[id], id } : {};
+export const getTodoById = (store: ContainerState, id: number): Todo  => (
+  { ...store.todos.byIds[id], id })
 
-export const getTodos = (store: any): any[] =>
+export const getTodos = (store: ContainerState): Todo[] =>
   getTodoList(store).map((id: number) => getTodoById(store, id));
 
 export const getTodoByVisibilityFilter = (
-  store: any,
+  store: ContainerState,
   visibilityFilter: string
 ) => {
   const allTodos = getTodos(store);

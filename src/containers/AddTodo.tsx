@@ -6,8 +6,9 @@ import { addTodo } from "../redux/actions";
 type DispatchProps = {
   addTodo: typeof addTodo;
 };
+type Action = ReturnType<typeof addTodo>
 
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
+const mapDispatchToProps = (dispatch: Dispatch<Action>): DispatchProps => ({
   addTodo: input => dispatch(addTodo(input))
 });
 
